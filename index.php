@@ -7,6 +7,6 @@
     <title>PHP Hotel</title>
 </head>
 <body>  
-    prova commit    
+    prova commi   
 </body>
 </html>
