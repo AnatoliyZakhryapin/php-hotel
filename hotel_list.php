@@ -49,4 +49,11 @@
             echo "No";
         }
     };
+
+    function getVoteStar ($vote) {
+        $vote_round = round($vote);
+        for ($i = 0; $i < $vote_round; $i++) {
+            echo '<i class="fa-solid fa-star"></i>';
+        }
+    }
 ?>

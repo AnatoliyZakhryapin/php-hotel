@@ -35,7 +35,7 @@
                                         <td><?php echo $hotel['name'] ?></td>
                                         <td><?php echo $hotel['description'] ?></td>
                                         <td><?php isParking ($hotel['parking']) ?></td>
-                                        <td><?php echo $hotel['vote'] ?></td>
+                                        <td><?php getVoteStar ($hotel['vote']) ?></td>
                                         <td><?php echo $hotel['distance_to_center'] . " Km" ?></td>
                                     </tr>
                                 <?php } ?>
