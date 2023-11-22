@@ -55,5 +55,11 @@
         for ($i = 0; $i < $vote_round; $i++) {
             echo '<i class="fa-solid fa-star"></i>';
         }
+        if ($vote_round < 5) {
+            $cicle = 5 - $vote_round;
+            for ($x = 0; $x < $cicle; $x++) {
+                echo '<i class="fa-regular fa-star"></i>';
+            }
+        }
     }
 ?>
