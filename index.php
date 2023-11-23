@@ -1,11 +1,15 @@
 
 <?php 
+    
     include 'hotel_list.php'; 
     
+    // Restituisce il valore booleano in base al value arriavto dal button, se invece non arriva niente di defualt e FALSE.
     $is_required_parking =filter_var($_GET['btnradio'] ?? false, FILTER_VALIDATE_BOOLEAN);
 
     var_dump($is_required_parking);
 
+    // Seconda opzione per filtrare lista di hotel
+    // Se e stato richiesto hotel con parking allora array di hotels va filtrata lasciando solo hotels con parking
     if ($is_required_parking === true) {
         $hotels = array_filter($hotels,"test_odd");
     };
@@ -62,7 +66,7 @@
                                         <td><?php echo $hotel['name'] ?></td>
                                         <td><?php echo $hotel['description'] ?></td>
                                         <td><?php isParking ($hotel['parking']) ?></td>
-                                        <td><?php getVoteStar ($hotel['vote']) ?></td>
+                                        <td><?php getVoteStar ($hotel['vote'], 5) ?></td>
                                         <td><?php echo $hotel['distance_to_center'] . " Km" ?></td>
                                     </tr>
                                 <?php } ?>

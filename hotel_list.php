@@ -1,7 +1,7 @@
 <?php
 
+    // Array con i dati di Hotels
     $hotels = [
-
         [
             'name' => 'Hotel Belvedere',
             'description' => 'Hotel Belvedere Descrizione',
@@ -40,6 +40,7 @@
 
     ];
 
+    // Controlla se e presente parking in hotel
     function isParking ($Boolean) {
         if($Boolean) {
             echo "Si";
@@ -48,20 +49,22 @@
         }
     };
 
-    function getVoteStar ($vote) {
+    // Stampa icone star in base ai parametri in ingresso
+    function getVoteStar ($vote, $total_vote_icon) {
         $vote_round = round($vote);
         for ($i = 0; $i < $vote_round; $i++) {
             echo '<i class="fa-solid fa-star"></i>';
         }
-        if ($vote_round < 5) {
-            $cicle = 5 - $vote_round;
+        if ($vote_round < $total_vote_icon) {
+            $cicle =  $total_vote_icon - $vote_round;
             for ($x = 0; $x < $cicle; $x++) {
                 echo '<i class="fa-regular fa-star"></i>';
             }
         }
-    }
+    };
 
+    // Callback funzione per array_filter()
     function test_odd($var) {
         return($var['parking'] === true);
-    }
+    };
 ?>
