@@ -28,6 +28,7 @@
     <main>
         <section class="hotels py-5">
             <div class="container">
+                <!-- Button per scelta con parking o senza -->
                 <div class="row mb-3">
                     <div class="col-auto">
                         <form action="" method="GET">
@@ -38,6 +39,7 @@
                         </form>
                     </div>
                 </div>
+                <!-- Tabela dei Hotels -->
                 <div class="row">
                     <div class="col">
                         <table class="table">
