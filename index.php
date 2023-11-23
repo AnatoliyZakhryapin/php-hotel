@@ -1,5 +1,9 @@
 
-<?php include 'hotel_list.php'; ?>
+<?php 
+    include 'hotel_list.php'; 
+    
+    $is_required_parking =filter_var($_GET['btnradio'] ?? false, FILTER_VALIDATE_BOOLEAN);
+?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +18,16 @@
     <main>
         <section class="hotels py-5">
             <div class="container">
+                <div class="row mb-3">
+                    <div class="col-auto">
+                        <form action="" method="GET">
+                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                <button type="submit" name="btnradio" value="0" class="btn btn-outline-primary">Tutti hotel</button>
+                                <button type="submit" name="btnradio" value="1" class="btn btn-outline-primary">Hotel con Parcheggio</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col">
                         <table class="table">
@@ -24,13 +38,20 @@
                                     <th scope="col">Descrizione</th>
                                     <th scope="col">Parcheggio</th>
                                     <th scope="col">Voto</th>
-                                    <th scope="col">Distanza dal centro km</th>
+                                    <th scope="col">Distanza dal centro km
+                                   
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                <?php foreach ($hotels as $hotel ) {
-                                    $counter += 1?>
-                                    <tr>
+                                <?php foreach ($hotels as $key => $hotel ) {
+                                    $counter = $key + 1?>
+                                    <tr
+                                        class="
+                                            <?php if(!$hotel['parking'] && $is_required_parking) { 
+                                                echo 'd-none';
+                                            }?>
+                                            "
+                                    >
                                         <th scope="row"><?php echo $counter ?></th>
                                         <td><?php echo $hotel['name'] ?></td>
                                         <td><?php echo $hotel['description'] ?></td>
@@ -40,13 +61,14 @@
                                     </tr>
                                 <?php } ?>
                             </tbody>
-                    </table>
+                        </table>
                     </div>
                 </div>
             </div>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>                                     
 </body>
 </html>
 

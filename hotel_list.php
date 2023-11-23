@@ -40,8 +40,6 @@
 
     ];
 
-    $counter = 0;
-
     function isParking ($Boolean) {
         if($Boolean) {
             echo "Si";
