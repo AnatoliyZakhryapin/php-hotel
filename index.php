@@ -3,6 +3,12 @@
     include 'hotel_list.php'; 
     
     $is_required_parking =filter_var($_GET['btnradio'] ?? false, FILTER_VALIDATE_BOOLEAN);
+
+    var_dump($is_required_parking);
+
+    if ($is_required_parking === true) {
+        $hotels = array_filter($hotels,"test_odd");
+    };
 ?>  
 <!DOCTYPE html>
 <html lang="en">
@@ -47,9 +53,9 @@
                                     $counter = $key + 1?>
                                     <tr
                                         class="
-                                            <?php if(!$hotel['parking'] && $is_required_parking) { 
+                                            <?php /*if(!$hotel['parking'] && $is_required_parking) { 
                                                 echo 'd-none';
-                                            }?>
+                                            }*/?>
                                             "
                                     >
                                         <th scope="row"><?php echo $counter ?></th>

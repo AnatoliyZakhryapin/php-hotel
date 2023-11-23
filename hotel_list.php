@@ -60,4 +60,8 @@
             }
         }
     }
+
+    function test_odd($var) {
+        return($var['parking'] === true);
+    }
 ?>
