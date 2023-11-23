@@ -53,12 +53,12 @@
     function getVoteStar ($vote, $total_vote_icon) {
         $vote_round = round($vote);
         for ($i = 0; $i < $vote_round; $i++) {
-            echo '<i class="fa-solid fa-star"></i>';
+            echo '<i class="fa-solid fa-star text-warning"></i>';
         }
         if ($vote_round < $total_vote_icon) {
             $cicle =  $total_vote_icon - $vote_round;
             for ($x = 0; $x < $cicle; $x++) {
-                echo '<i class="fa-regular fa-star"></i>';
+                echo '<i class="fa-regular fa-star text-warning"></i>';
             }
         }
     };
